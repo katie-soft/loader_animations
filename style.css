@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    margin-top: 50px;
+    grid-auto-rows: 200px;
+    justify-content: center;
+}
+
+.cell:hover {
+    background-color: black;
+}
+
+.cell_light {
+    background-color: darkgrey;
+}
+
+.cell_dark {
+    background-color: dimgrey;
+}
+
+.heart {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    transform-origin: 40px 40px;
+    margin: calc((200px - 80px)/2) auto;
+}
+
+.heart__content {
+    top: 32px;
+    left: 32px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    animation: heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.heart__content:after,
+.heart__content:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+}
+
+.heart__content:before {
+    left: -24px;
+    border-radius: 50% 0 0 50%;
+}
+
+.heart__content:after {
+    top: -24px;
+    border-radius: 50% 50% 0 0;
+}
+
+@keyframes heart {
+    0% {
+        transform: scale(0.95);
+    }
+
+    5% {
+        transform: scale(1.1);
+    }
+
+    39% {
+        transform: scale(0.85);
+    }
+
+    45% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.three-blocks {
+    display: flex;
+    gap: 10px;
+    margin: calc((200px - 40px)/2) auto;
+    justify-content: center;
+}
+
+.block {
+    width: 15px;
+    height: 40px;
+    background-color: #fff;
+    animation: block 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.block_2 {
+    animation-delay: 0.2s;
+}
+
+.block_3 {
+    animation-delay: 0.4s;
+}
+
+@keyframes block {
+    0% {
+        transform: scaleY(1.3)
+    }
+
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.circles {
+    position: relative;
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border: 10px #fff solid;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    top: calc((200px - 80px)/ 2);
+    left: calc((200px - 80px)/ 2);
+    animation: circle 1s linear infinite;
+    opacity: 0;
+}
+
+.circle_2 {
+    animation-delay: 0.5s;
+}
+
+@keyframes circle {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.slider {
+    display: flex;
+    gap: 5px;
+    margin: calc((200px - 10px) / 2) auto;
+    justify-content: center;
+}
+
+.dot {
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+}
+
+.dot {
+    animation: scale-down 2s infinite linear;
+}
+
+.dot_2 {
+    animation-delay: 0.5s;
+}
+
+.dot_3 {
+    animation-delay: 1s;
+}
+
+@keyframes scale-down {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+.ring {
+    width: 80px;
+    height: 80px;
+    border: 5px #fff solid;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: calc((200px - 80px) / 2) auto;
+    position: relative;
+    animation: rotation 1s infinite linear;
+}
+
+.ring::after {
+    content: "";
+    width: 20px;
+    height: 30px;
+    background-color: dimgrey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.cell:hover .ring::after {
+    background-color: #000;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.sections {
+    margin: calc((200px - 80px) / 2) auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 40px solid;
+    border-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.75) rgba(255, 255, 255, 0.25);
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.flip {
+    margin: calc((200px - 80px) / 2) auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: flip 5s infinite cubic-bezier(.17, .91, .9, .42);
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(1800deg);
+    }
+
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
+
+.jumping-dots {
+    display: flex;
+    gap: 15px;
+    margin: calc((200px - 15px) / 2) auto;
+    justify-content: center;
+}
+
+.jumping-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: jump 1s infinite linear;
+}
+
+
+.jumping-dot_2 {
+    animation-delay: 0.2s;
+}
+
+.jumping-dot_3 {
+    animation-delay: 0.4s;
+}
+
+.jumping-dot_4 {
+    animation-delay: 0.6s;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.square {
+    display: grid;
+    grid-template-columns: repeat(2, 40px);
+    grid-template-rows: repeat(2, 40px);
+    margin-top: calc((200px - 80px) / 2);
+    justify-content: center;
+}
+
+.square__section {
+    background-color: #fff;
+    animation: changeColor 2s infinite;
+}
+
+.square__section_2 {
+    animation-delay: 0.5s;
+}
+
+.square__section_3 {
+    animation-delay: 1.5s;
+}
+
+.square__section_4 {
+    animation-delay: 1s;
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    100% {
+        background-color: #fff;
+    }
+}
